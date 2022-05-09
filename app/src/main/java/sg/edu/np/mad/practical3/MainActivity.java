@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //Update text on button by calling function
         checkFollowStatus(user1.followed, followButton);
 
-        //Create on click function
+        //Create on click function for follow button
         followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 //Call function to update the text on button
                 checkFollowStatus(user1.followed, followButton);
 
+            }
+        });
+
+        // Get message button widget
+        Button messageButton = findViewById(R.id.messageButton);
+
+        // Create on click function for message button
+        messageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create intent for message button (link to message group activity)
+                Intent messageGroupIntent = new Intent(MainActivity.this, MessageGroup.class);
+                startActivity(messageGroupIntent);
             }
         });
     }
@@ -75,5 +88,7 @@ public class MainActivity extends AppCompatActivity {
             followButton.setText("Follow");
         }
     }
+
+
 
 }
